@@ -13,14 +13,18 @@ tidyverse_update()
 # Read in data file
 ward_data<-read_csv("datasets/quinn/chpt3/ward.csv", col_names = TRUE)
 
+shrimp<-read_csv("datasets/quinn/chpt3/ward.csv", col_names = TRUE)
+
 # Pasted from Import Dataset Tool
 # Note that for us, library(readr) is redundant because we loaded it with
 # all the other tidyverse packages earlier
 library(readr)
-ward <- read_csv("datasets/quinn/chpt3/ward.csv")
+ward <- read_csv("datasets/demos/shrimp.csv")
 
 # Read in compensation data file
 compensation<-read_csv("datasets/demos/compensation.csv")
+
+length<-read_csv("datasets/demos/shrimp.csv")
 
 # names() tells you the names assigned to each column, generally variable
 # names
@@ -57,6 +61,18 @@ group_by(ZONE) %>%
             var_eggs = var(EGGS))
 
 View(summ_eggs)
+
+summ_shrimp <- shrimp_data
+  group_by(Ploid) 
+  summarise(mean_eggs = mean(Length),
+            median_eggs = median(Length),
+            IQR_eggs = IQR(Length),
+            sd_eggs = sd(Length),
+            var_eggs = var(Length))
+
+View(summ_shrimp)
+
+summary(shrimp_data)
 
 # mutate() adds new variables while preserving existing ones.  General form:
 # <dataset_name> <- mutate(<dataset_name>, <transform_variable_name> =
@@ -121,19 +137,20 @@ ggplot(ward)+
 
 sanchez_data<-read_csv("datasets/demos/sanchez.csv", col_names = TRUE)
 
+shrimp_data<-read.csv("datasets/demos/shrimp.csv")
 
 # Calculate summary statistics
 # Enter your code here
 
-summ_Density <- sanchez_data %>%
-  group_by(Colony) %>% 
-  summarise(mean_eggs = mean(Density),
-            median_eggs = median(Density),
-            IQR_eggs = IQR(Density),
-            sd_eggs = sd(Density),
-            var_eggs = var(Density))
+summ_Length <- shrimp_data %>%
+  group_by(Ploid) %>% 
+  summarise (mean = mean(Length),
+            median = median(Length),
+            IQR = IQR(Length),
+            sd = sd(Length),
+            var = var(Length))
 
-View(summ_Density)
+View(summ_Length)
 
 # Add a new column of log(y+1) transformed beetle densities to the sanchez dataset
 # Enter your code here
@@ -163,6 +180,9 @@ ggplot(sanchez_data) +
 ggplot(sanchez_data)+
   geom_boxplot(aes(x = Colony, y = Density), notch = FALSE, varwidth = TRUE)
 
-ggplot(sanchez_data)+
-  geom_boxplot(aes(x = Colony, y = log(Density+1)), notch = FALSE, varwidth = TRUE)
+ggplot(shrimp_data)+
+  geom_boxplot(aes(x = Ploid, y = Length), notch = FALSE, varwidth = TRUE)
+
+gplot(sanchez_data)+
+  geom_boxplot(aes(x = Colony, y = Density), notch = FALSE, varwidth = TRUE)
 
