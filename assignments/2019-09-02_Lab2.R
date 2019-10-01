@@ -134,8 +134,12 @@ ggplot(data = data3)+
                shape=18, size=3)
 
 
+<<<<<<< HEAD
+### CODE RUNS CORRECTLY 10/10 ####
+=======
 data01<-read_csv("datasets/abd/chapter12/chap12e3HornedLizards.csv")
 data01<-data01 %>% slice(-105)
 
 crickets<-read_csv("datasets/abd/chapter13/chap13e5SagebrushCrickets.csv")
+>>>>>>> 702c0d835e698bfd279eeaa46a4ae637b8d139ff
 

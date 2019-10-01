@@ -186,3 +186,4 @@ ggplot(shrimp_data)+
 gplot(sanchez_data)+
   geom_boxplot(aes(x = Colony, y = Density), notch = FALSE, varwidth = TRUE)
 
+### CODE RUNS CORRECTLY 10/10 ####
