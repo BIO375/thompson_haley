@@ -34,11 +34,21 @@ data<-read_csv("datasets/demos/2019-09-02_class-data.csv",col_names = TRUE,
 # 12 observations of 4 variables
 summary(data)
 
+shrimpD_data <-read_csv("datasets/demos/shrimpD.csv")
+
+shrimpP_data <-read_csv("datasets/demos/shrimpP.csv")
+
+summary(shrimpP_data)
+
 # The function summary{base} does not provide us with the standard deviation
 
 # We can calculate variance and standard deviation using the function
 # summarise{dplyr}
 summarise(data, sd_ht = sd(height), sd_arm = sd(right_arm))
+
+summarise(shrimpD_data, sd_ht = sd(LEG))
+
+summarise(shrimpP_data, sd_ht = sd(LEG))
 
 # Plot height as a histogram
 ggplot(data)+
@@ -59,6 +69,12 @@ help("geom_boxplot")
 # Plot height as a boxplot
 ggplot(data)+
   geom_boxplot(aes(x = "", y = height), notch = TRUE, varwidth = TRUE)
+
+ggplot(shrimpD_data)+
+  geom_boxplot(aes(x = Ploid, y = LEG), notch = FALSE, varwidth = TRUE)
+
+ggplot(shrimpP_data)+
+  geom_boxplot(aes(x = Ploid, y = LEG), notch = FALSE, varwidth = TRUE)
 
 # Plot height as a three boxplots, one for each hair color
 ggplot(data)+
@@ -118,5 +134,12 @@ ggplot(data = data3)+
                shape=18, size=3)
 
 
+<<<<<<< HEAD
 ### CODE RUNS CORRECTLY 10/10 ####
+=======
+data01<-read_csv("datasets/abd/chapter12/chap12e3HornedLizards.csv")
+data01<-data01 %>% slice(-105)
+
+crickets<-read_csv("datasets/abd/chapter13/chap13e5SagebrushCrickets.csv")
+>>>>>>> 702c0d835e698bfd279eeaa46a4ae637b8d139ff
 
