@@ -166,3 +166,4 @@ ggplot(sanchez_data)+
 ggplot(sanchez_data)+
   geom_boxplot(aes(x = Colony, y = log(Density+1)), notch = FALSE, varwidth = TRUE)
 
+### CODE RUNS CORRECTLY 10/10 ####
