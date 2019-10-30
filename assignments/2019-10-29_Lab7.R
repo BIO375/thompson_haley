@@ -85,3 +85,5 @@ aldrin <-read_csv("datasets/aldrin.csv", col_types = cols(
 
 tukey <- glht(aldrin02, linfct = mcp(Depth_Aldrin = "Tukey"))
 summary(tukey)
+
+

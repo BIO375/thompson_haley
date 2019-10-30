@@ -19,7 +19,8 @@ library("nlme")
 library("tidyverse")
 # Check for updates
 tidyverse_update()
-
+install.packages(c("purrr", "rlang"))
+Yes
 ### General workflow ####
 
 # The general workflow as you do analyses in R should be as follows:
@@ -159,7 +160,7 @@ summary(tukey)
 # This is a very simple test output, it gives you a test statistic, df, and p
 
 kruskal.test(growth.rate ~ parasite, data = daphnia)
-summary(kruskal)
+summary(kruskal.test)
 
 ### Robust Welch's ANOVA ####
 
