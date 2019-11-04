@@ -11,6 +11,8 @@ library("DescTools")
 
 #####Problem 9
 
+#### MISSING CODE TO READ IN FILE read_csv() ####
+
 summ_birds <- birds %>%
   group_by(type) %>% 
   summarise(mean_eggs = mean(yellow),
@@ -30,6 +32,8 @@ wilcox.test(yellow ~ type, data = birds, alternative = "two.sided", conf.level =
 
 #######Question 10 
 
+#### MISSING CODE TO READ IN FILE read_csv() ####
+
 baker <- mutate(baker, diff = After - Before)
 
 ggplot(baker) +
@@ -44,6 +48,8 @@ ggplot(baker)+
 SignTest(baker$diff, alternative = "greater", mu = 0, conf.level = 0.95)
 
 ######Question 11
+
+#### MISSING CODE TO READ IN FILE read_csv() ####
 
 summ_alga <- alga %>%
   group_by(treatment) %>% 
@@ -61,3 +67,4 @@ ggplot(alga)+
 
 t.test(growthrate ~ treatment, data = alga, var.equal = TRUE, alternative = "two.sided", conf.level = 0.95)
 
+#### CODE BROKE 3 TIMES, 3/6 PTS ####
