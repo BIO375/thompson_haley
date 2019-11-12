@@ -12,6 +12,7 @@ library("ggfortify")
 # for confidence bands
 # If you have not installed broom before, you will need to execute
 # install.packages("broom")
+install.packages("broom")
 library("broom")
 
 
