@@ -2,6 +2,7 @@ rm(list = ls())
 getwd()
 library("tidyverse")
 tidyverse_update()
+install.packages(c("haven","rvest"))
 
 install.packages("purrr")
 
@@ -13,14 +14,33 @@ library("DescTools")
 
 #### MISSING CODE TO READ IN FILE read_csv() ####
 
-summ_birds <- birds %>%
-  group_by(type) %>% 
-  summarise(mean_eggs = mean(yellow),
-            sd_eggs = sd(yellow),
+#######Problem 9 - Test Corrections 
+
+birds <-read_csv ("datasets/exams/feathers.csv") 
+
+tidy_birds <- mutate(birds, diff = typical - odd)
+
+summ_birds <- tidy_birds %>%
+  summarise(mean_eggs = mean(diff),
+            median_eggs = median(diff),
+            sd_eggs = sd(diff),
             n_eggs = n())
 
 ratio <-(max(summ_birds$sd_eggs))/(min(summ_birds$sd_eggs))
 
+ggplot(tidy_birds) +
+  geom_histogram(aes(diff), binwidth = 0.01)
+
+ggplot(tidy_birds) +
+  geom_boxplot(aes(x = "", y = diff))
+
+ggplot(tidy_birds)+
+  geom_qq(aes(sample = diff))
+
+t.test(birds$typical, birds$odd, 
+       alternative = "greater", paired =  TRUE, conf.level = 0.95)
+
+#####from original answer 
 ggplot(birds) +
   geom_histogram(aes(yellow), binwidth = 0.03)+
   facet_wrap(~type)
@@ -33,6 +53,8 @@ wilcox.test(yellow ~ type, data = birds, alternative = "two.sided", conf.level =
 #######Question 10 
 
 #### MISSING CODE TO READ IN FILE read_csv() ####
+
+baker <-read_csv ("datasets/exams/baker.csv") 
 
 baker <- mutate(baker, diff = After - Before)
 
@@ -50,6 +72,8 @@ SignTest(baker$diff, alternative = "greater", mu = 0, conf.level = 0.95)
 ######Question 11
 
 #### MISSING CODE TO READ IN FILE read_csv() ####
+
+alga <-read_csv ("datasets/exams/alga.csv") 
 
 summ_alga <- alga %>%
   group_by(treatment) %>% 
