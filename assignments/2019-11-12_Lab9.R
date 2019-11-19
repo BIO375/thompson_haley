@@ -12,6 +12,9 @@ tidyverse_update()
 
 fowler <- read_csv("datasets/fowler.csv")
 
+ggplot(data = fowler) +
+  geom_point(mapping = aes(x = FERTILIZER, y = YIELD ))
+
 ###Diagnosing departures using residual plots 
 
 model01 <- lm(YIELD ~ FERTILIZER, data = fowler)
