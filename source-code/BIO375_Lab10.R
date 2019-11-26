@@ -15,7 +15,7 @@ library("epitools")
 library("tidyverse")
 # Check for updates
 tidyverse_update()
-
+install.packages("rlang")
 ### Exact Binomial test ####
 
 # The simplest way to execute a binomial test is to use the function 

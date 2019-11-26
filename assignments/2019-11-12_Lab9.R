@@ -17,13 +17,13 @@ ggplot(data = fowler) +
 
 ###Diagnosing departures using residual plots 
 
-model01 <- lm(YIELD ~ FERTILIZER, data = fowler)
-autoplot(model01, smooth.colour = NA)
+model07 <- lm(YIELD ~ FERTILIZER, data = fowler)
+autoplot(model07, smooth.colour = NA)
 
 ggplot(data = fowler)+
   geom_point(aes(x = FERTILIZER, y = resid(model01)))
 
-summary(model01)
+summary(model07)
 
 ###Normal Q-Q looks normal, Residuals v Y and Residuals v X look good 
 
