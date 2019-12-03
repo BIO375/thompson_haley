@@ -45,3 +45,5 @@ ggplot(data = driver)+
   geom_point(aes(x = Age, y = resid(model01)))
 
 summary(model01)
+
+#### Code runs perfectly 5/5 ####
