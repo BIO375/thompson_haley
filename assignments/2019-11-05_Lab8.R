@@ -173,3 +173,4 @@ summary(tukey)
 ## There is a significant difference between the male major removed and male minor removed at p<0.05 
 
 
+# 26/26 pts ####

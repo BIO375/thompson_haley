@@ -79,3 +79,5 @@ spider_data <- read_csv("datasets/quinn/chpt3/elgar.csv")
 
 t.test(spider_data$HORIZLIG, spider_data$HORIZDIM, 
        alternative = "two.sided", paired = TRUE, conf.level = 0.95)
+
+#### 10/10 code runs without breaking ####

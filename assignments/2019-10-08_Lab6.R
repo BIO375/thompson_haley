@@ -115,5 +115,7 @@ t.test(sec ~ species, data = fish, var.equal = TRUE, alternative = "two.sided", 
 
 #b) We have found that it is significant that the difference between the two means is not equal to 0 (2-sample t test, t19 = 3.3802, p < 0.05)
 
+# Code breaks at line 89 because fish data not read in.
+### 23/24 pts ####
 
 

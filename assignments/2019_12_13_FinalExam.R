@@ -69,3 +69,6 @@ davis <- read_csv("datasets/final/davis.csv")
 
 model03 <-chisq.test(x = davis$observed, p = davis$expected_p)
 model03
+
+
+#### 10/10 code runs without breaking ####

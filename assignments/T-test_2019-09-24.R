@@ -42,3 +42,5 @@ summ_data01 <- data01 %>%
              sd = sd(squamosalHornLength),
              var = var(squamosalHornLength))
 View(summ_data01)
+
+#### 10/10 code runs without breaking ####
